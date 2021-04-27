@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: 80% 20%;
     padding: 15px;
+    gap: 10px;
 }
 
 @media (max-width: 767px) {
@@ -20,8 +21,9 @@
     color: white;
     background-color: teal;
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     border: none;
+    font-size: larger;
 }
 
 @media (max-width: 767px) {
@@ -32,6 +34,7 @@
 
 .form__input {
     margin: 5px;
+    font-size: larger;
 }
 
 @media (max-width: 767px) {
@@ -42,7 +45,7 @@
 }
 
 .form__blockHeader {
-    font-size: large;
+    font-size: x-large;
     padding: 15px;
     align-self: center;
     border-bottom: 1px solid #ccc;
