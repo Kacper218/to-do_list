@@ -1,9 +1,15 @@
 html {
     box-sizing: border-box;
+    background-color: #ccc;
 }
 
 *,
 ::after,
 ::before {
     box-sizing: inherit;
+}
+
+.container {
+    margin-left: 7%;
+    margin-right: 7%;
 }

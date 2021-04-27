@@ -1,0 +1,23 @@
+.form__block {
+    display: grid;
+    grid-template-rows: 40% 60%;
+    background-color: white;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.form__container {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.form__button {
+    margin: 5px;
+}
+
+.form__input {
+    margin: 5px;
+}
+
+.form__blockHeader {}

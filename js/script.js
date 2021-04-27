@@ -9,27 +9,31 @@
         },
     ];
 
-
-
     const addNewTask = (newTaskContent) => {
         tasks.push({
             content: newTaskContent,
         });
         render();
+        return newTaskContent;
     };
 
-    removeTask = (taskIndex) => {
+    const removeTask = (taskIndex) => {
         tasks.splice(taskIndex, 1);
         render();
     };
 
-    toggleTaskDone = (taskIndex) => {
+    const toggleTaskDone = (taskIndex) => {
         tasks[taskIndex].done = !tasks[taskIndex].done;
         render();
     };
 
-    bindEvents = () => {
+    const clearFormText = () => {
+        const formText = document.querySelector(".js-newTask");
+        formText.value = "";
+        formText.focus();
+    }
 
+    bindEvents = () => {
 
         const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -38,7 +42,6 @@
                 removeTask(taskIndex);
             });
         });
-
 
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
@@ -58,8 +61,8 @@
             ${task.done ? "style=\"text-decoration: line-through\"" : ""}
             >
             <button class="js-done">zrobione?</button>
-            <button class="js-remove">usuń</button>
             ${task.content}
+            <button class="js-remove">usuń</button>
             </li>
             `;
         };
@@ -80,6 +83,8 @@
 
         addNewTask(newTaskContent);
 
+        clearFormText();
+
     };
 
     const init = () => {
@@ -88,6 +93,7 @@
         const form = document.querySelector(".js-form");
 
         form.addEventListener("submit", onFormSubmit);
+
     };
 
     init();
