@@ -37,11 +37,19 @@
     border: none;
     height: 25px;
     width: 30px;
+    font-size: larger;
 }
 
 .list__text {
     grid-column: 2 / 3;
     max-width: 400px;
+    word-wrap: break-word;
+}
+
+@media (max-width: 767px) {
+    .list__text {
+        max-width: 100px;
+    }
 }
 
 .list__buttonRemove {
@@ -52,4 +60,5 @@
     border: none;
     height: 25px;
     width: 30px;
+    font-size: larger;
 }
