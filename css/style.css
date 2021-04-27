@@ -1,6 +1,7 @@
 html {
     box-sizing: border-box;
     background-color: #ccc;
+    font-family: 'Lato', sans-serif;
 }
 
 *,
@@ -12,4 +13,10 @@ html {
 .container {
     margin-left: 7%;
     margin-right: 7%;
+}
+
+.container__header {
+    font-weight: bold;
+    font-size: 27px;
+    margin-bottom: 0;
 }
