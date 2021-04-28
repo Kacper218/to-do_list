@@ -62,8 +62,9 @@
             <button class="list__buttonToggle js-done">
             ${task.done ? "✔" : ""}
             </button>
-            <li class="list__text js-text" 
-            ${task.done ? "style=\"text-decoration: line-through\"" : ""}
+            <li class="list__text js-text
+            ${task.done ? "list-text--done" : ""}
+            " 
             >
             ${task.content}
             </li>

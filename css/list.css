@@ -32,6 +32,10 @@
     font-size: larger;
 }
 
+.list-text--done {
+    text-decoration: line-through;
+}
+
 @media (max-width: 767px) {
     .list__text {
         max-width: 130px;
