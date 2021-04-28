@@ -83,6 +83,8 @@
         const newTaskContent = document.querySelector(".js-newTask").value.trim();
 
         if (newTaskContent === "") {
+            const formText = document.querySelector(".js-newTask");
+            formText.focus();
             return;
         };
 
