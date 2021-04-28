@@ -1,19 +1,12 @@
-.form__Block {
-    background-color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
 .form__container {
     display: grid;
-    grid-template-columns: 80% 20%;
-    padding: 15px;
+    grid-template-columns: 1fr auto;
     gap: 10px;
 }
 
 @media (max-width: 767px) {
     .form__container {
-        grid-template-columns: 100%;
+        grid-template-columns: 1fr;
     }
 }
 
@@ -42,12 +35,4 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
-}
-
-.form__blockHeader {
-    font-size: x-large;
-    padding: 15px;
-    align-self: center;
-    border-bottom: 1px solid #ccc;
-    font-weight: bold;
 }

@@ -1,0 +1,12 @@
+.container {
+    max-width: 900px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+.container__header {
+    font-weight: bold;
+    font-size: xx-large;
+    margin-bottom: 0;
+    margin-left: 10px;
+}

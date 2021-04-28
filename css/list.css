@@ -3,21 +3,6 @@
     list-style-type: none;
 }
 
-.list__Block {
-    background-color: white;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 15px;
-}
-
-.list__blockHeader {
-    font-size: x-large;
-    padding: 15px;
-    align-self: center;
-    border-bottom: 2px solid #ccc;
-    font-weight: bold;
-}
-
 .list__item {
     display: grid;
     grid-template-columns: 10% 80% 10%;
