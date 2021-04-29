@@ -45,7 +45,7 @@
         formText.focus();
     }
 
-    bindEvents = () => {
+    bindRemoveEvents = () => {
 
         const removeButtons = document.querySelectorAll(".js-remove");
 
@@ -54,7 +54,9 @@
                 removeTask(taskIndex);
             });
         });
+    }
 
+    bindAddEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
 
         toggleDoneButtons.forEach((toggleDoneButton, taskIndex) => {
@@ -62,10 +64,9 @@
                 toggleTaskDone(taskIndex);
             });
         });
-
     }
 
-    const render = () => {
+    const renderTasks = () => {
         let htmlString = "";
 
         for (const task of tasks) {
@@ -86,8 +87,13 @@
         };
 
         document.querySelector(".js-tasks").innerHTML = htmlString;
+    }
+    const render = () => {
 
-        bindEvents();
+        renderTasks();
+
+        bindRemoveEvents();
+        bindAddEvents();
     };
 
     const onFormSubmit = (event) => {
