@@ -18,6 +18,10 @@
     font-size: larger;
 }
 
+.section__button:disabled {
+    color: gray;
+}
+
 
 .section__header {
     font-size: x-large;

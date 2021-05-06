@@ -1,11 +1,13 @@
 {
     let tasks = [];
+    let hideDoneTasks = false;
 
     const addNewTask = (newTaskContent) => {
         tasks = [
             ...tasks,
             {
-                content: newTaskContent
+                content: newTaskContent,
+                done: false,
             }
         ];
         render();
@@ -56,6 +58,7 @@
                 toggleTaskDone(taskIndex);
             });
         });
+
     };
 
     const renderTasks = () => {
@@ -82,19 +85,16 @@
     };
     const renderButtons = () => {
         let sectionContainer = document.querySelector(".js-sectionContainer");
-        console.log(sectionContainer);
 
         let htmlHeaderString = `
         <h2 class = "section__header">Lista zadań</h2>
         `;
 
         let htmlButtonString = "";
-        console.log(tasks.length);
 
         switch (tasks.length) {
             case 0:
                 sectionContainer.innerHTML = htmlHeaderString;
-                console.log(sectionContainer);
                 break;
             case 1:
                 sectionContainer.innerHTML = htmlHeaderString;
@@ -103,9 +103,41 @@
                 <button class="section__button js-markDoneAll">Ukończ wszystkie</button>
         `
                 sectionContainer.innerHTML += htmlButtonString;
-                console.log(sectionContainer);
                 break;
         };
+    };
+
+    const toggleMarkDoneAllButton = (markDoneAllButton) => {
+
+        let isEveryTaskDone = tasks.every(({ done }) => done);
+
+        if (tasks.length > 0) {
+            if (isEveryTaskDone === true) {
+                return markDoneAllButton.disabled = true;
+            } else {
+                return markDoneAllButton.disabled = false;
+            };
+        }
+    }
+    const bindButtonEvents = () => {
+
+        const hideDoneButton = document.querySelector(".js-hideDone");
+        let markDoneAllButton = document.querySelector(".js-markDoneAll");
+
+        switch (tasks.length) {
+            case 0:
+                break;
+            case 1:
+                markDoneAllButton.addEventListener("click", () => {
+                    tasks.forEach((task, taskIndex) => {
+                        if (task.done === false) {
+                            toggleTaskDone(taskIndex);
+                        }
+                    });
+                });
+                break;
+        };
+
     };
 
     const render = () => {
@@ -113,8 +145,12 @@
         renderTasks();
         renderButtons();
 
+        toggleMarkDoneAllButton(document.querySelector(".js-markDoneAll"));
+
         bindRemoveEvents();
         bindAddEvents();
+        bindButtonEvents();
+
     };
 
     const onFormSubmit = (event) => {
