@@ -1,13 +1,5 @@
 {
-    let tasks = [{
-            content: "przerobić lekcje z kursu",
-            done: false,
-        },
-        {
-            content: "zjeść makaron z pesto",
-            done: true,
-        },
-    ];
+    let tasks = [];
 
     const addNewTask = (newTaskContent) => {
         tasks = [
@@ -43,7 +35,7 @@
         const formText = document.querySelector(".js-newTask");
         formText.value = "";
         formText.focus();
-    }
+    };
 
     bindRemoveEvents = () => {
 
@@ -54,7 +46,7 @@
                 removeTask(taskIndex);
             });
         });
-    }
+    };
 
     bindAddEvents = () => {
         const toggleDoneButtons = document.querySelectorAll(".js-done");
@@ -64,13 +56,13 @@
                 toggleTaskDone(taskIndex);
             });
         });
-    }
+    };
 
     const renderTasks = () => {
-        let htmlString = "";
+        let htmlTasksString = "";
 
         for (const task of tasks) {
-            htmlString += `
+            htmlTasksString += `
             <span class="list__item">
             <button class="list__buttonToggle js-done">
             ${task.done ? "✔" : ""}
@@ -86,11 +78,40 @@
             `;
         };
 
-        document.querySelector(".js-tasks").innerHTML = htmlString;
-    }
+        document.querySelector(".js-tasks").innerHTML = htmlTasksString;
+    };
+    const renderButtons = () => {
+        let sectionContainer = document.querySelector(".js-sectionContainer");
+        console.log(sectionContainer);
+
+        let htmlHeaderString = `
+        <h2 class = "section__header">Lista zadań</h2>
+        `;
+
+        let htmlButtonString = "";
+        console.log(tasks.length);
+
+        switch (tasks.length) {
+            case 0:
+                sectionContainer.innerHTML = htmlHeaderString;
+                console.log(sectionContainer);
+                break;
+            case 1:
+                sectionContainer.innerHTML = htmlHeaderString;
+                htmlButtonString += `
+                <button class="section__button js-hideDone">Ukryj ukończone</button>
+                <button class="section__button js-markDoneAll">Ukończ wszystkie</button>
+        `
+                sectionContainer.innerHTML += htmlButtonString;
+                console.log(sectionContainer);
+                break;
+        };
+    };
+
     const render = () => {
 
         renderTasks();
+        renderButtons();
 
         bindRemoveEvents();
         bindAddEvents();
@@ -123,5 +144,6 @@
     };
 
     init();
+
 
 }
