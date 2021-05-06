@@ -16,6 +16,11 @@
     border-bottom: 1px solid #ccc;
     max-height: 58px;
     font-size: larger;
+    transition: 1s;
+}
+
+.section__button:hover {
+    color: hsl(180, 100%, 35%);
 }
 
 .section__button:disabled {
