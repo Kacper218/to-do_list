@@ -9,6 +9,12 @@
     grid-template-columns: 2fr 1fr 1fr;
 }
 
+@media (max-width: 767px) {
+    .section__container {
+        display: block;
+    }
+}
+
 .section__button {
     color: teal;
     background-color: white;
@@ -17,6 +23,30 @@
     max-height: 58px;
     font-size: larger;
     transition: 1s;
+}
+
+@media (max-width: 767px) {
+    .section__button {
+        border-bottom: none;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+.section__button--none {
+    background-color: white;
+    color: white;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    max-height: 58px;
+}
+
+@media (max-width: 767px) {
+    .section__button--none {
+        border-bottom: none;
+    }
+    
 }
 
 .section__button:hover {
@@ -35,6 +65,12 @@
     border-bottom: 1px solid #ccc;
     font-weight: bold;
     margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    .section__header {
+        margin-bottom: 10px;
+    }
 }
 
 .section__body {

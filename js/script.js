@@ -116,11 +116,16 @@
         switch (tasks.length) {
             case 0:
                 sectionContainer.innerHTML = htmlHeaderString;
+                htmlButtonString += `
+                <button class="section__button--none" disabled></button>
+                <button class="section__button--none" disabled></button>
+        `
+                sectionContainer.innerHTML += htmlButtonString;
                 break;
             case 1:
                 sectionContainer.innerHTML = htmlHeaderString;
                 htmlButtonString += `
-                <button class="section__button js-hideDone">Ukryj ukończone</button>
+                <button class="section__button js-hideDone ">Ukryj ukończone</button>
                 <button class="section__button js-markDoneAll">Ukończ wszystkie</button>
         `
                 sectionContainer.innerHTML += htmlButtonString;
