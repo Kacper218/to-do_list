@@ -64,8 +64,9 @@
     const renderTasks = () => {
         let htmlTasksString = "";
 
-        for (const task of tasks) {
-            htmlTasksString += `
+        if (hideDoneTasks === false) {
+            for (const task of tasks) {
+                htmlTasksString += `
             <span class="list__item">
             <button class="list__buttonToggle js-done">
             ${task.done ? "✔" : ""}
@@ -79,9 +80,29 @@
             <button class="list__buttonRemove js-remove">🗑️</button>
             </span>
             `;
-        };
+            };
+            document.querySelector(".js-tasks").innerHTML = htmlTasksString;
+        } else {
+            for (const task of tasks.filter(({ done }) => !done)) {
+                htmlTasksString += `
+            <span class="list__item">
+            <button class="list__buttonToggle js-done">
+            ${task.done ? "✔" : ""}
+            </button>
+            <li class="list__text js-text
+            ${task.done ? "list-text--done" : ""}
+            " 
+            >
+            ${task.content}
+            </li>
+            <button class="list__buttonRemove js-remove">🗑️</button>
+            </span>
+            `;
+            };
+            document.querySelector(".js-tasks").innerHTML = htmlTasksString;
 
-        document.querySelector(".js-tasks").innerHTML = htmlTasksString;
+        }
+
     };
     const renderButtons = () => {
         let sectionContainer = document.querySelector(".js-sectionContainer");
@@ -122,7 +143,7 @@
     const bindButtonEvents = () => {
 
         const hideDoneButton = document.querySelector(".js-hideDone");
-        let markDoneAllButton = document.querySelector(".js-markDoneAll");
+        const markDoneAllButton = document.querySelector(".js-markDoneAll");
 
         switch (tasks.length) {
             case 0:
@@ -135,6 +156,13 @@
                         }
                     });
                 });
+
+                hideDoneButton.addEventListener("click", () => {
+                    hideDoneTasks = !hideDoneTasks;
+                    hideDoneTasks === false ? hideDoneButton.innerText = "Ukryj ukończone" : hideDoneButton.innerText = "Pokaż ukończone";
+                    render();
+                });
+
                 break;
         };
 
